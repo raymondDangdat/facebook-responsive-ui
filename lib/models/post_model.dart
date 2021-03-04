@@ -1,7 +1,6 @@
 import 'package:facebook_ui/models/user_model.dart';
 import 'package:meta/meta.dart';
 
-
 class Post {
   final User user;
   final String caption;

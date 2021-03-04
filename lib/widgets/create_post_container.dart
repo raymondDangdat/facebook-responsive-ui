@@ -1,13 +1,15 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:facebook_ui/models/models.dart';
 import 'package:flutter/material.dart';
+
+import 'profile_avatar.dart';
+
 class CreatePostContainer extends StatelessWidget {
   final User currentUser;
 
   const CreatePostContainer({
     Key key,
     @required this.currentUser,
-}): super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,27 +20,52 @@ class CreatePostContainer extends StatelessWidget {
         children: [
           Row(
             children: [
-              CircleAvatar(
-                radius: 20.0,
-                backgroundColor: Colors.grey[200],
-                backgroundImage: CachedNetworkImageProvider(currentUser.imageUrl),
+              ProfileAvatar(imageUrl: currentUser.imageUrl),
+              const SizedBox(
+                width: 8.0,
               ),
-              const SizedBox(width: 8.0,),
-              Expanded(child: TextField(decoration: InputDecoration.collapsed(hintText: 'What\ s on your mind?'),))
+              Expanded(
+                  child: TextField(
+                decoration: InputDecoration.collapsed(
+                    hintText: 'What\ s on your mind?'),
+              ))
             ],
           ),
-          const Divider(height: 10.0, thickness: 0.5,),
+          const Divider(
+            height: 10.0,
+            thickness: 0.5,
+          ),
           Container(
             height: 40.0,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-              TextButton.icon(onPressed: (){}, icon: Icon(Icons.videocam), label: Text("Live")),
-              const VerticalDivider(width: 8.0,),
-              TextButton.icon(onPressed: (){}, icon: Icon(Icons.photo_library, color: Colors.green,), label: Text("Photos")),
-              const VerticalDivider(width: 8.0,),
-              TextButton.icon(onPressed: (){}, icon: Icon(Icons.video_call, color: Colors.purpleAccent,), label: Text("Room")),
-            ],),
+                TextButton.icon(
+                    onPressed: () {},
+                    icon: Icon(Icons.videocam),
+                    label: Text("Live")),
+                const VerticalDivider(
+                  width: 8.0,
+                ),
+                TextButton.icon(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.photo_library,
+                      color: Colors.green,
+                    ),
+                    label: Text("Photos")),
+                const VerticalDivider(
+                  width: 8.0,
+                ),
+                TextButton.icon(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.video_call,
+                      color: Colors.purpleAccent,
+                    ),
+                    label: Text("Room")),
+              ],
+            ),
           )
         ],
       ),
